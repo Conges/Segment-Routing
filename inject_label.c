@@ -60,7 +60,7 @@ static unsigned int ilabel_hook_func(const struct nf_hook_ops *ops,
     u16 new_header_size;         /* MPLS header size*/
     u8 ttl;                     /* MPLS TTL(time to live)*/
     bool bos;                   /* MPLS bottom of stack */
-    u16 i;
+    int i;
 
     // unsigned int hh_len;
     // struct dst_entry *dst = skb_dst(skb);
