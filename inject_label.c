@@ -88,14 +88,14 @@ static unsigned int ilabel_hook_func(const struct nf_hook_ops *ops,
     pr_debug("inject_label: saddr %pI4h ,  interset %pI4h\n", &saddr, &inject_label_sender_address);
 
     /* Watch only sender of interest */
-    if (saddr != inject_label_sender_address)
-        return NF_ACCEPT;
+    // if (saddr != inject_label_sender_address)
+    //     return NF_ACCEPT;
     
     /* Create label struct */
-    tun_encap_info.labels = 3;
-    tun_encap_info.label[0] = 15;
-    tun_encap_info.label[1] = 31;
-    tun_encap_info.label[2] = 8;
+    tun_encap_info.labels = 1;
+    tun_encap_info.label[0] = 100;
+    // tun_encap_info.label[1] = 31;
+    // tun_encap_info.label[2] = 8;
 
     /* Calculate mpls header size */    
     new_header_size = mpls_encap_size(&tun_encap_info);
