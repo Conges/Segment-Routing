@@ -74,8 +74,8 @@ static unsigned int ilabel_hook_func(const struct nf_hook_ops *ops,
     iph = ip_hdr(skb);          /* get IP header */
 
     /* Skip if it's not TCP packet */
-    if (iph->protocol != IPPROTO_TCP)
-        return NF_ACCEPT;
+    //if (iph->protocol != IPPROTO_TCP)
+    //    return NF_ACCEPT;
 
     tcph = tcp_hdr(skb);        /* get TCP header */
 
@@ -92,9 +92,9 @@ static unsigned int ilabel_hook_func(const struct nf_hook_ops *ops,
     //     return NF_ACCEPT;
     
     /* Create label struct */
-    tun_encap_info.labels = 1;
-    tun_encap_info.label[0] = 100;
-    // tun_encap_info.label[1] = 31;
+    tun_encap_info.labels = 2;
+    tun_encap_info.label[0] = 999;
+    tun_encap_info.label[1] = 777;
     // tun_encap_info.label[2] = 8;
 
     /* Calculate mpls header size */    
